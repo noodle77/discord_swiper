@@ -33,9 +33,23 @@ function getPokeApi(pokeName) {
             response.json().then(function(data) {
                 console.log(data);
                 displayPokeStats(data);
+                getEvo(data);
             })
         })
     
+}
+
+function getEvo(data) {
+    var pokeId = data.id;
+    var newEvo = 'https://pokeapi.co/api/v2/evolution-chain/' + pokeId;
+
+    fetch(newEvo)
+        .then(function (response) {
+            response.json().then(function(data) {
+                console.log(data);
+            })
+        })
+
 }
 
 function getPokeTCGApi(pokeName) {
