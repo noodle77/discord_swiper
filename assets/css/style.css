@@ -1,0 +1,136 @@
+:root {
+    --darkGreen: #26580F;
+    --green: #378805;
+    --lightGreen: #86DC3D;
+    --offGreen: #C5E90B;
+    --normal: #AAAA99;
+    --fire: #FF4422;
+    --water: #3399FF;
+    --electric: #FFCC33;
+    --grass: #77CC55;
+    --ice: #65CCFF;
+    --fighting: #BB5544;
+    --poison: #AA5599;
+    --ground: #DCBB55;
+    --flying: #8899FF;
+    --psychic: #FF5699;
+    --bug: #AABB23;
+    --rock: #BBAA66;
+    --ghost: #6666BB;
+    --dragon: #7766EE;
+    --dark: #775544;
+    --steel: #AAAABB;
+    --fairy: #EE99EE;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    background-color: var(--darkGreen);
+    color: var(--offGreen);
+}
+
+#searchButton {
+    background-color: var(--green);
+    color: var(--offGreen);
+}
+
+#searchButton:hover {
+    background-color: var(--darkGreen);
+}
+
+#pokeCard {
+    /* 5:7 ratio based off 64px */
+    height: 448px;
+    width: 320px;
+}
+
+#abilityOne::first-letter {
+    text-transform: capitalize;
+}
+
+#abilityTwo::first-letter {
+    text-transform: capitalize;
+}
+
+#hiddenAbility::first-letter {
+    text-transform: capitalize;
+}
+
+#typeOne, #typeTwo {
+    color: white;
+}
+
+.normal {
+    background-color: var(--normal);
+}
+
+.fire {
+    background-color: var(--fire);
+}
+
+.water {
+    background-color: var(--water);
+}
+
+.electric {
+    background-color: var(--electric);
+}
+
+.grass {
+    background-color: var(--grass);
+}
+
+.ice {
+    background-color: var(--ice);
+}
+
+.fighting {
+    background-color: var(--fighting);
+}
+
+.poison {
+    background-color: var(--poison);
+}
+
+.ground {
+    background-color: var(--ground);
+}
+
+.flying {
+    background-color: var(--flying);
+}
+
+.psychic {
+    background-color: var(--psychic);
+}
+
+.bug {
+    background-color: var(--bug);
+}
+
+.rock {
+    background-color: var(--rock);
+}
+
+.ghost {
+    background-color: var(--ghost);
+}
+
+.dragon {
+    background-color: var(--dragon);
+}
+
+.dark {
+    background-color: var(--dark);
+}
+
+.steel {
+    background-color: var(--steel);
+}
+
+.fairy {
+    background-color: var(--fairy);
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>OnlyPokeFans</title>
+</head>
+<body>
+
+    <header>
+        <div class="columns">
+            <div class="column has-text-centered is-size-1">
+                <h1>OnlyPok&#233;Fans</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="columns px-5 is-centered">
+        <div class="column is-full-mobile is-3">
+            <form id="searchForm">
+                <div class="field">
+                    <div class="columns">
+                        <div class="column">
+                            <label for="pokeInput" class="label has-text-centered">Search for a Pok&#233;mon:</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="field">
+                    <p class="control">
+                        <input id="pokeInput" name="pokeInput" type="text" class="input is-primary" placeholder="Name of Pok&#233;mon"/>
+                    </p>
+                </div>
+                <div class="field">
+                    <div class="columns">
+                        <div class="column">
+                            <button id="searchButton" type="submit" class="button is-fullwidth">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="column is-full-mobile is-5 is-flex is-justify-content-center">
+            <figure class="image">
+                <img id="pokeCard" alt="The basic or stage two version of the searched pokemon's trading card.">
+            </figure>
+        </div>
+        <div class="column is-full-mobile is-4">
+            <table class="table is-striped is-fullwidth has-text-centered">
+                <tbody>
+                    <tr>
+                        <th colspan="2" class="has-text-centered">Type</th>
+                    </tr>
+                    <tr>
+                        <td id="typeOne"></td>
+                        <td id="typeTwo"></td>
+                    </tr>
+                    <tr>
+                        <th class="has-text-centered">Height</th>
+                        <th class="has-text-centered">Weight</th>
+                    </tr>
+                    <tr>
+                        <td><span id="pokeHeight"></span> m</td>
+                        <td><span id="pokeWeight"></span> kg</td>
+                    </tr>
+                    <tr>
+                        <th colspan="2" class="has-text-centered">Sprites</th>
+                    </tr>
+                    <tr>
+                        <td><img id="defaultFrontImg"></td>
+                        <td><img id="shinyFrontImg"></td>
+                    </tr>
+                    <tr>
+                        <th class="has-text-centered">Abilities</th>
+                        <th class="has-text-centered">Hidden Ability</th>
+                    </tr>
+                    <tr>
+                        <td id="abilityOne"></td>
+                        <td id="hiddenAbility"></td>
+                    </tr>
+                    <tr>
+                        <td id="abilityTwo"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+            
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>    
+<script type="module" src="./assets/js/script.js"></script>
+</body>
+</html>
