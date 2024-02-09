@@ -33,19 +33,20 @@ function getPokeApi(pokeName) {
             response.json().then(function(data) {
                 console.log(data);
                 displayPokeStats(data);
-                getEvo(data);
+                getEvo(data); //robert
             })
         })
     
 }
 
-function getEvo(data) {
+function getEvo(data) { //robert
     var pokeId = data.id;
     var newEvo = 'https://pokeapi.co/api/v2/evolution-chain/' + pokeId;
 
     fetch(newEvo)
         .then(function (response) {
             response.json().then(function(data) {
+                var evo = data.chain.evolves_to.species; //not working var
                 console.log(data);
             })
         })
