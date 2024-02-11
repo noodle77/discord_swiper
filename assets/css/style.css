@@ -1,8 +1,10 @@
 :root {
-    --darkGreen: #26580F;
-    --green: #378805;
-    --lightGreen: #86DC3D;
-    --offGreen: #C5E90B;
+    --darkBlack: #0A0A0A;
+    --black: #101010;
+    --textWhite: #f5f5f5;
+    --textWhiteShade: #f5f5f5f3;
+    --textPink: #F24667;
+
     --normal: #AAAA99;
     --fire: #FF4422;
     --water: #3399FF;
@@ -23,28 +25,62 @@
     --fairy: #EE99EE;
 }
 
+html, header {
+    background-color: var(--black);
+}
+
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: var(--black);
+    min-height: 100vh;
+    min-width: 100vw;
 }
 
-h1 {
-    background-color: var(--darkGreen);
-    color: var(--offGreen);
+#headerOne {
+    color: var(--textWhite)
 }
 
-#searchButton {
-    background-color: var(--green);
-    color: var(--offGreen);
+#headerTwo, .cardHeader {
+    color: var(--textPink)
 }
 
-#searchButton:hover {
-    background-color: var(--darkGreen);
+#pokeInput {
+    border-color: var(--textPink);
+    box-shadow: none;
+}
+
+#searchButton, #modalButton {
+    background-color: var(--textWhite);
+    color: var(--textPink);
+    box-shadow: none;
+}
+
+#searchButton:hover, #modalButton:hover {
+    background-color: var(--textWhiteShade);
+}
+
+#searchButton:active, #modalButton:active {
+    border-color: var(--textPink);
+}
+
+#searchButton:focus, #modalButton:focus {
+    border-color: var(--textPink)
 }
 
 #pokeCard {
     /* 5:7 ratio based off 64px */
     height: 448px;
     width: 320px;
+}
+
+th, .modal-card-head, .modal-card-title {
+    background-color: var(--darkBlack);
+    color: var(--textPink)!important;
+}
+
+td, .modal-card-body {
+    background-color: var(--black);
+    color: var(--textWhite);
 }
 
 #abilityOne::first-letter {
