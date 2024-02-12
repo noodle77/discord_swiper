@@ -22,9 +22,9 @@
     --steel: #AAAABB;
     --fairy: #EE99EE;
 
-    --darkest:rgb(40, 40, 40);
+    --darkest:rgb(46, 47, 88);
     --darker:rgb(75, 75, 75);
-    --dark:rgb(119, 119, 119); 
+    --dark:rgb(143, 143, 144); 
 }
 
 @font-face {
@@ -34,20 +34,20 @@
 
 body {
     font-family:"pokemon" ;
-    background-color: var(--dark);
+    background-image:url("../img/998181.jpg");
     height: 300vh;
     font-size: 2.5vh;
 }
 
 h1 {
-    background-color: var(--darkest);
     color: var(--offGreen);
     height: 8vh;
-    box-shadow: 0 0 10px 3px black;
+    
 }
 
+
 .info {
-    opacity: 0.8;
+    opacity: 0.9;
     border-radius: 10px;
     margin-top: 1.75vh;
 }
@@ -56,18 +56,9 @@ h1 {
     box-shadow: 4px 4px 10px 3px black;
     height: 84.5vh;
     max-height: 800px;
+    
 }
 
-.search-container {
-    background-color: var(--darkest);
-    margin: auto;
-    border-radius: 10px;
-    box-shadow: 4px 4px 10px 3px black;
-    height: 15em;
-    width: 50em;
-    margin-top: 3vh;
-  
-}
 
 .label {
     color:var(--dark);
@@ -75,10 +66,37 @@ h1 {
     
 }
 
+.button {
+    max-width: 10vw;
+}
+
+.search-container {
+    background-color: var(--darkest);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   padding-top: 2cqb;
+   padding-left: 1vw;
+   padding-bottom: 1vh; 
+   
+}
+
+.search-form {
+    padding-top: 2vh;
+
+}
+
+#pokeInput {
+    border-radius: 50px;
+
+}
+
 #searchButton {
     background-color: var(--dark);
     color: var(--darkest);
-    border-radius: 5px;
+    border-radius: 50px;
+    margin-left: 10px;
 }
 
 #searchButton:hover {
@@ -92,6 +110,7 @@ h1 {
     max-height: 800px;
    
 }
+
 
 #abilityOne::first-letter {
     text-transform: capitalize;

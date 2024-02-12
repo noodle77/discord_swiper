@@ -15,43 +15,39 @@
 <body>
 
     <header>
-        <div class="columns">
-            <div class="column has-text-centered is-size-2">
-                <h1><span id="pokeHeader">Poké</span><span id="monHeader">Hub</span></h1>
+        <div class="search-container">
+            <div class="columns is-centered">
+                <div class="column">
+                    <h1 class="title is-size-2">
+                        <span id="pokeHeader">Poké</span>
+                        <span id="monHeader">Hub</span>
+                    </h1>
+                </div>
+                <div class="column search-form">
+                    <form id="searchForm">
+                        <div class="field has-addons">
+                            <div class="control">
+                                <input id="pokeInput" name="pokeInput" type="text" class="input is-primary" placeholder="Name of Pokémon"/>
+                            </div>
+                            <div class="control">
+                                <button id="searchButton" type="submit" class="button is-primary">Search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </header>
 
     <div class="columns px-5 is-centered">
-        <div class="search-container column is-full-mobile is-3 is">
-            <form id="searchForm">
-                <div class="field">
-                    <div class="columns">
-                        <div class="column">
-                            <label for="pokeInput" class="label has-text-centered">Search for a Pok&#233;mon:</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="field">
-                    <p class="control">
-                        <input id="pokeInput" name="pokeInput" type="text" class="input is-primary" placeholder="Name of Pok&#233;mon"/>
-                    </p>
-                </div>
-                <div class="field">
-                    <div class="columns">
-                        <div class="column">
-                            <button id="searchButton" type="submit" class="button is-fullwidth">Search</button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
         <div class="column is-full-mobile is-5 is-flex is-justify-content-center">
+            <!-- Your content here -->
             <figure class="image">
                 <img id="pokeCard" alt="The basic or stage two version of the searched pokemon's trading card.">
             </figure>
         </div>
         <div class="column is-full-mobile is-4">
+            <!-- Your content here -->
             <table class="info-container info table is-striped is-fullwidth has-text-centered">
                 <tbody>
                     <tr>
@@ -91,9 +87,9 @@
             </table>
         </div>
     </div>
-            
-<script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> --> <!-- JQUERY CDN -->
-<script type="module" src="./assets/js/script.js"></script>
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> --> <!-- JQUERY CDN -->
+    <script type="module" src="./assets/js/script.js"></script>
 </body>
 </html>
