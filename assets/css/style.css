@@ -1,9 +1,10 @@
 :root {
     --darkBlack: #0A0A0A;
     --black: #101010;
-    --textWhite: #f5f5f5;
-    --textWhiteShade: #f5f5f5f3;
+    --textWhite: #ffffff;
+    --textWhiteShade: #f5f5f5;
     --textPink: #F24667;
+    --textPinkShade: #f24668e5;
 
     --normal: #AAAA99;
     --fire: #FF4422;
@@ -25,8 +26,12 @@
     --fairy: #EE99EE;
 }
 
-html, header {
+html {
     background-color: var(--black);
+}
+
+header {
+    background-color: var(--darkBlack);
 }
 
 body {
@@ -49,28 +54,44 @@ body {
     box-shadow: none;
 }
 
-#searchButton, #modalButton {
+#historyButtons, #clearPokeHistoryBtn, #searchForm, #searchButton {
+    width: 100%;
+}
+
+#clearPokeHistoryBtn, #searchButton, #modalButton {
+    background-color: var(--textPink);
+    border-color: var(--textPink);
+    box-shadow: none;
+    color: var(--textWhite);
+}
+
+#clearPokeHistoryBtn:hover, #clearPokeHistoryBtn:active, #clearPokeHistoryBtn:focus, #searchButton:hover, #searchButton:active, #searchButton:focus,
+#modalButton:hover, #modalButton:active, #modalButton:focus {
+    background-color: var(--textPinkShade);
+    border-color: var(--textWhite);
+    box-shadow: none;
+    color: var(--textWhite);
+}
+
+.button {
     background-color: var(--textWhite);
     color: var(--textPink);
     box-shadow: none;
 }
 
-#searchButton:hover, #modalButton:hover {
+.button:hover, .button:active, .button:focus {
     background-color: var(--textWhiteShade);
-}
-
-#searchButton:active, #modalButton:active {
     border-color: var(--textPink);
-}
-
-#searchButton:focus, #modalButton:focus {
-    border-color: var(--textPink)
+    box-shadow: none;
+    color: var(--textPink);
 }
 
 #pokeCard {
     /* 5:7 ratio based off 64px */
-    height: 448px;
-    width: 320px;
+    max-width: 320px;
+    max-height: 448px;
+    height: auto;
+    width: auto;
 }
 
 th, .modal-card-head, .modal-card-title {

@@ -1,4 +1,5 @@
 let pokeName;
+let pokeHistoryArray = [];
 
 var noEvos = $('#noEvos'),
     typeOne = $('#typeOne'),
@@ -14,6 +15,14 @@ var noEvos = $('#noEvos'),
     searchForm = $('#searchForm'),
     abilityOne = $('#abilityOne'),
     abilityTwo = $('#abilityTwo'),
+    historyOne = $('#historyOne'),
+    historyTwo = $('#historyTwo'),
+    historyThree = $('#historyThree'),
+    historyFour = $('#historyFour'),
+    historyFive = $('#historyFive'),
+    historySix = $('#historySix'),
+    historySeven = $('#historySeven'),
+    historyEight = $('#historyEight'),
     evoCardFrom = $('#evoCardFrom'),
     evolvesFrom = $('#evolvesFrom'),
     headerThree = $('#headerThree'),
@@ -21,7 +30,10 @@ var noEvos = $('#noEvos'),
     hiddenAbility = $('#hiddenAbility'),
     shinyFrontImg = $('#shinyFrontImg'),
     defaultFrontImg = $('#defaultFrontImg'),
-    nationalDexNumber = $('#nationalDexNumber');
+    nationalDexNumber = $('#nationalDexNumber'),
+    clearPokeHistoryBtn = $('#clearPokeHistoryBtn');
+
+    console.log(pokeHistoryArray)
 
 function searchSubmitHandler(event) {
     event.preventDefault();
@@ -29,10 +41,24 @@ function searchSubmitHandler(event) {
 
     pokeName = pokeInput.val().toLowerCase();
 
-    pokeInput.val('');
-    getPokeApi(pokeName);
-    getPokeTCGApi(pokeName);
     
+
+    if (!pokeName) {
+        alert('Please enter a valid Pokémon name.\n(Not all Gen 8+ Pokémon are available yet)')
+    } else if (pokeHistoryArray.includes(pokeName)) {
+        pokeInput.val('');
+        getPokeApi(pokeName);
+        getPokeTCGApi(pokeName);
+    } else if (pokeHistoryArray >= 8) {
+        pokeHistoryArray.pop();
+    } else if (pokeName) {
+        pokeInput.val('');
+        getPokeApi(pokeName);
+        getPokeTCGApi(pokeName);
+        pokeHistoryArray.unshift(pokeName);
+        localStorage.setItem('pokeHistory', JSON.stringify(pokeHistoryArray));
+        displayPokeSearchHistory();
+    }
 }
 
 function getPokeApi(pokeName) {
@@ -40,27 +66,44 @@ function getPokeApi(pokeName) {
 
     fetch(requestPokeApiUrl)
         .then(function (response) {
-            response.json().then(function(data) {
-                // console.log(data);
-                displayPokeStats(data);
-            })
-        }
-    )
+            if (response.ok) {
+                response.json().then(function(data) {
+                    // console.log(data);
+                    displayPokeStats(data);
+                    updatePokeHistoryArray(data);
+                })
+            } else {
+                pokeHistoryArray.shift();
+                localStorage.setItem('pokeHistory', JSON.stringify(pokeHistoryArray));
+                displayPokeSearchHistory();
+                alert('Please enter a valid Pokémon name.\n(Not all Gen 8+ Pokémon are available yet)');
+            }
+        })
+        .catch(function (error) {
+            alert('Unable to connect to PokéAPI');
+        })
     
 }
 
 function getPokeTCGApi(pokeName) {
-    var requestPokeTCGUrl = 'https://api.pokemontcg.io/v2/cards/?q=name:' + pokeName + ' -subtypes:"TAG TEAM"';
+    var requestPokeTCGUrl = 'https://api.pokemontcg.io/v2/cards/?q=name:' + pokeName + ' (-subtypes:"TAG TEAM")';
 
     fetch(requestPokeTCGUrl)
         .then(function (response) {
-            response.json().then(function(results) {
-                // console.log(results);
-                displayPokeTCGApi(results);
-                displayEvos(results);
-            })
-        }
-    )
+            if (response.ok) {
+                response.json().then(function(results) {
+                    // console.log(results);
+                    displayPokeTCGApi(results);
+                    displayEvos(results);
+                })
+            } else {
+                alert('Error: ' + response.statusText);
+            }
+        })
+        .catch(function (error) {
+            alert('Unable to connect to Pokémon TCG API');
+        })
+    
 }
 
 function displayPokeTCGApi(results) {
@@ -135,7 +178,7 @@ function displayEvos(results) {
         fetch(evolvesFromUrl)
             .then(function (response) {
                 response.json().then(function(fromData) {
-                    console.log(fromData);
+                    // console.log(fromData);
                     evoCardFrom.attr('src', fromData.data[0].images.small);
                 })
             }
@@ -148,7 +191,7 @@ function displayEvos(results) {
         fetch(evolvesToUrl)
             .then(function (response) {
                 response.json().then(function(toData) {
-                    console.log(toData);
+                    // console.log(toData);
                     evoCardTo.attr('src', toData.data[0].images.small);
                 })
             }
@@ -210,10 +253,108 @@ function openModal() {
     });
 }
 
+function clearHistory() {
+    pokeHistoryArray = [];
+    localStorage.clear();
+    historyOne.empty();
+    historyTwo.empty();
+    historyThree.empty();
+    historyFour.empty();
+    historyFive.empty();
+    historySix.empty();
+    historySeven.empty();
+    historyEight.empty();
+}
+
+function pokeHistoryBtnClickEvent(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    pokeName = event.target.innerHTML;
+    getPokeApi(pokeName);
+    getPokeTCGApi(pokeName);
+}
+
+function displayPokeSearchHistory() {
+    if (pokeHistoryArray[0] != undefined) {
+        historyOne.empty();
+        historyOne.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[0] + '</button>')
+    } else if (pokeHistoryArray[0] === undefined) {
+        historyOne.empty();
+    }
+    if (pokeHistoryArray[1] != undefined) {
+        historyTwo.empty();
+        historyTwo.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[1] + '</button>')
+    } else if (pokeHistoryArray[1] === undefined) {
+        historyTwo.empty();
+    }
+    if (pokeHistoryArray[2] != undefined) {
+        historyThree.empty();
+        historyThree.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[2] + '</button>')
+    } else if (pokeHistoryArray[2] === undefined) {
+        historyThree.empty();
+    }
+    if (pokeHistoryArray[3] != undefined) {
+        historyFour.empty();
+        historyFour.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[3] + '</button>')
+    } else if (pokeHistoryArray[3] === undefined) {
+        historyFour.empty();
+    }
+    if (pokeHistoryArray[4] != undefined) {
+        historyFive.empty();
+        historyFive.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[4] + '</button>')
+    } else if (pokeHistoryArray[4] === undefined) {
+        historyFive.empty();
+    }
+    if (pokeHistoryArray[5] != undefined) {
+        historySix.empty();
+        historySix.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[5] + '</button>')
+    } else if (pokeHistoryArray[5] === undefined) {
+        historySix.empty();
+    }
+    if (pokeHistoryArray[6] != undefined) {
+        historySeven.empty();
+        historySeven.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[6] + '</button>')
+    } else if (pokeHistoryArray[6] === undefined) {
+        historySeven.empty();
+    }
+    if (pokeHistoryArray[7] != undefined) {
+        historyEight.empty();
+        historyEight.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[7] + '</button>')
+    } else if (pokeHistoryArray[7] === undefined) {
+        historyEight.empty();
+    }
+
+    $('.historyBtn').on('click', pokeHistoryBtnClickEvent)
+}
+
+function updatePokeHistoryArray(data) {
+    if(pokeHistoryArray.length > 0) {
+        pokeHistoryArray = JSON.parse(localStorage.getItem('pokeHistory'));
+        pokeHistoryArray.unshift(pokeHistoryArray.splice(pokeHistoryArray.findIndex(pokeName => pokeName === data.name), 1)[0]);
+        localStorage.setItem('pokeHistory', JSON.stringify(pokeHistoryArray));
+        displayPokeSearchHistory();
+    }
+}
+
+if (pokeHistoryArray.length == 0 && localStorage.getItem('pokeHistory') != null) {
+    let previousPokeHistoryArray = JSON.parse(localStorage.getItem('pokeHistory'))
+    pokeHistoryArray = previousPokeHistoryArray;
+    pokeName = pokeHistoryArray[0];
+    displayPokeSearchHistory();
+    getPokeApi(pokeName);
+    getPokeTCGApi(pokeName);
+} else {
+    $(document).ready(() => {
+        pokeHistoryArray = ["mew"];
+        localStorage.setItem('pokeHistory', JSON.stringify(pokeHistoryArray))
+        pokeName = 'mew';
+        displayPokeSearchHistory();
+        getPokeApi(pokeName);
+        getPokeTCGApi(pokeName);
+    })
+}
+
 modalButton.on('click', openModal);
 searchForm.on('submit', searchSubmitHandler);
+clearPokeHistoryBtn.on('click', clearHistory);
 
-$(document).ready(() => {
-    getPokeApi('mew');
-    getPokeTCGApi('mew');
-})
