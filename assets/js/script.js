@@ -31,7 +31,8 @@ var noEvos = $('#noEvos'),
     shinyFrontImg = $('#shinyFrontImg'),
     defaultFrontImg = $('#defaultFrontImg'),
     nationalDexNumber = $('#nationalDexNumber'),
-    clearPokeHistoryBtn = $('#clearPokeHistoryBtn');
+    clearPokeHistoryBtn = $('#clearPokeHistoryBtn'),
+    clearPokeHistoryBtn2 = $('#clearPokeHistoryBtn2');
 
     console.log(pokeHistoryArray)
 
@@ -273,53 +274,53 @@ function pokeHistoryBtnClickEvent(event) {
     getPokeApi(pokeName);
     getPokeTCGApi(pokeName);
 }
-
+// button is-rounded has-background-light has-text-danger has-text-weight-bold
 function displayPokeSearchHistory() {
     if (pokeHistoryArray[0] != undefined) {
         historyOne.empty();
-        historyOne.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[0] + '</button>')
+        historyOne.prepend('<button class="button historyBtn is-capitalized is-rounded has-text-danger has-text-weight-bold is-fullwidth">' + pokeHistoryArray[0] + '</button>')
     } else if (pokeHistoryArray[0] === undefined) {
         historyOne.empty();
     }
     if (pokeHistoryArray[1] != undefined) {
         historyTwo.empty();
-        historyTwo.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[1] + '</button>')
+        historyTwo.prepend('<button class="button historyBtn is-capitalized is-rounded has-text-danger has-text-weight-bold is-fullwidth">' + pokeHistoryArray[1] + '</button>')
     } else if (pokeHistoryArray[1] === undefined) {
         historyTwo.empty();
     }
     if (pokeHistoryArray[2] != undefined) {
         historyThree.empty();
-        historyThree.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[2] + '</button>')
+        historyThree.prepend('<button class="button historyBtn is-capitalized is-rounded has-text-danger has-text-weight-bold is-fullwidth">' + pokeHistoryArray[2] + '</button>')
     } else if (pokeHistoryArray[2] === undefined) {
         historyThree.empty();
     }
     if (pokeHistoryArray[3] != undefined) {
         historyFour.empty();
-        historyFour.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[3] + '</button>')
+        historyFour.prepend('<button class="button historyBtn is-capitalized is-rounded has-text-danger has-text-weight-bold is-fullwidth">' + pokeHistoryArray[3] + '</button>')
     } else if (pokeHistoryArray[3] === undefined) {
         historyFour.empty();
     }
     if (pokeHistoryArray[4] != undefined) {
         historyFive.empty();
-        historyFive.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[4] + '</button>')
+        historyFive.prepend('<button class="button historyBtn is-capitalized is-rounded has-text-danger has-text-weight-bold is-fullwidth">' + pokeHistoryArray[4] + '</button>')
     } else if (pokeHistoryArray[4] === undefined) {
         historyFive.empty();
     }
     if (pokeHistoryArray[5] != undefined) {
         historySix.empty();
-        historySix.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[5] + '</button>')
+        historySix.prepend('<button class="button historyBtn is-capitalized is-rounded has-text-danger has-text-weight-bold is-fullwidth">' + pokeHistoryArray[5] + '</button>')
     } else if (pokeHistoryArray[5] === undefined) {
         historySix.empty();
     }
     if (pokeHistoryArray[6] != undefined) {
         historySeven.empty();
-        historySeven.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[6] + '</button>')
+        historySeven.prepend('<button class="button historyBtn is-capitalized is-rounded has-text-danger has-text-weight-bold is-fullwidth">' + pokeHistoryArray[6] + '</button>')
     } else if (pokeHistoryArray[6] === undefined) {
         historySeven.empty();
     }
     if (pokeHistoryArray[7] != undefined) {
         historyEight.empty();
-        historyEight.prepend('<button class="button historyBtn is-capitalized is-rounded is-fullwidth">' + pokeHistoryArray[7] + '</button>')
+        historyEight.prepend('<button class="button historyBtn is-capitalized is-rounded has-text-danger has-text-weight-bold is-fullwidth">' + pokeHistoryArray[7] + '</button>')
     } else if (pokeHistoryArray[7] === undefined) {
         historyEight.empty();
     }
@@ -357,3 +358,4 @@ if (pokeHistoryArray.length == 0 && localStorage.getItem('pokeHistory') != null)
 modalButton.on('click', openModal);
 searchForm.on('submit', searchSubmitHandler);
 clearPokeHistoryBtn.on('click', clearHistory);
+clearPokeHistoryBtn2.on('click', clearHistory);
