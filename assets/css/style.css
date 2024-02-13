@@ -87,11 +87,7 @@ thead {
     border: 1px solid var(--bulma-light50);
 }
 
-td {
-    border: none !important;
-}
-
-th {
+td, th {
     border: none !important;
 }
 
@@ -124,7 +120,7 @@ th {
 
 /* ---------- UTILITY CLASSES ---------- */
 .roundme {
-    border-radius: 10px;
+    border-radius: 20px;
 }
 
 .center, .center-column {
@@ -169,7 +165,7 @@ th {
 
 
 
-/* ---------- IDS ---------- */
+/* ---------- IDs ---------- */
 #pokeCard {
     /* 5:7 ratio based off 64px */
     /* height: 448px; */
