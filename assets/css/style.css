@@ -87,11 +87,7 @@ thead {
     border: 1px solid var(--bulma-light50);
 }
 
-td {
-    border: none !important;
-}
-
-th {
+td, th {
     border: none !important;
 }
 
@@ -169,7 +165,7 @@ th {
 
 
 
-/* ---------- IDS ---------- */
+/* ---------- IDs ---------- */
 #pokeCard {
     /* 5:7 ratio based off 64px */
     /* height: 448px; */
