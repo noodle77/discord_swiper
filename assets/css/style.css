@@ -1,3 +1,4 @@
+/* Global Styles */
 :root {
     --darkBlack: #0A0A0A;
     --black: #101010;
@@ -26,6 +27,7 @@
     --fairy: #EE99EE;
 }
 
+/* Main Styles */
 html {
     background-color: var(--black);
 }
@@ -41,6 +43,7 @@ body {
     min-width: 100vw;
 }
 
+/* Class Styles */
 #headerOne {
     color: var(--textWhite)
 }
@@ -73,35 +76,12 @@ body {
     color: var(--textWhite);
 }
 
-.button {
-    background-color: var(--textWhite);
-    color: var(--textPink);
-    box-shadow: none;
-}
-
-.button:hover, .button:active, .button:focus {
-    background-color: var(--textWhiteShade);
-    border-color: var(--textPink);
-    box-shadow: none;
-    color: var(--textPink);
-}
-
 #pokeCard {
     /* 5:7 ratio based off 64px */
     max-width: 320px;
     max-height: 448px;
     height: auto;
     width: auto;
-}
-
-th, .modal-card-head, .modal-card-title {
-    background-color: var(--darkBlack);
-    color: var(--textPink)!important;
-}
-
-td, .modal-card-body {
-    background-color: var(--black);
-    color: var(--textWhite);
 }
 
 #abilityOne::first-letter {
@@ -119,6 +99,32 @@ td, .modal-card-body {
 #typeOne, #typeTwo {
     color: white;
 }
+
+/* ID Styles */
+.button {
+    background-color: var(--textWhite);
+    color: var(--textPink);
+    box-shadow: none;
+}
+
+.button:hover, .button:active, .button:focus {
+    background-color: var(--textWhiteShade);
+    border-color: var(--textPink);
+    box-shadow: none;
+    color: var(--textPink);
+}
+
+
+th, .modal-card-head, .modal-card-title {
+    background-color: var(--darkBlack);
+    color: var(--textPink)!important;
+}
+
+td, .modal-card-body {
+    background-color: var(--black);
+    color: var(--textWhite);
+}
+
 
 .normal {
     background-color: var(--normal);

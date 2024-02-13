@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Google Fonts CDN-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!--GStatic CDN-->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!--Google fonts CDN-->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> --> <!-- BULMA CDN -->
+    <!--bulma CDN-->
     <link rel="stylesheet" href="./node_modules/bulma/css/bulma.min.css">
+    <!--CSS link-->
     <link rel="stylesheet" href="./assets/css/style.css">
     <!-- <link rel="stylesheet" href="./assets/css/debug.css"> --> <!-- debugger -->
     <title>PokéHub</title>
@@ -15,6 +19,7 @@
 <body>
 
     <header>
+        <!--Modal/Evolution Section-->
         <div class="columns px-3 level has-text-centered">
             <div class="column is-1"></div>
             <div class="column is-2">
@@ -44,6 +49,7 @@
                     </div>
                 </div>
             </div>
+            <!--Header/Title-->
             <div class="column is-5 is-size-1">
                 <h1><span id="headerOne">Poké</span><span id="headerTwo">Hub</span></h1>
             </div>
@@ -51,6 +57,7 @@
         </div>
     </header>
 
+    <!--Search Bar-->
     <div class="columns px-3 pt-5 is-centered">
         <div class="column is-1"></div>
         <div class="column is-2 is-full-mobile is-flex is-flex-direction-column is-align-items-center">
@@ -64,9 +71,8 @@
                     </p>
                 </div>
             </form>
+            <!--Search Bar History-->
             <div id="historyButtons" class="is-flex-direction-column pt-2">
-                <!-- example DELETE LATER -->
-                <!-- <button id="historyOne" class="button is-rounded is-fullwidth is-hidden"></button> -->
                 <div id="historyOne" class="mt-1"></div>
                 <div id="historyTwo" class="mt-3"></div>
                 <div id="historyThree" class="mt-3"></div>
@@ -80,14 +86,17 @@
                 </button>
             </div>
         </div>
+        <!--Card-->
         <div class="column is-5 is-full-mobile is-flex is-justify-content-center">
             <figure class="image">
                 <img id="pokeCard" alt="The basic or stage two version of the searched pokemon's trading card.">
             </figure>
         </div>
+        <!--Stats-->
         <div class="column is-3 is-full-mobile">
             <table class="table is-striped is-fullwidth has-text-centered">
                 <tbody>
+                    <!--Dex Number-->
                     <tr>
                         <th colspan="2" class="has-text-centered">Nation Dex Number</th>
                     </tr>
@@ -97,6 +106,7 @@
                     <tr>
                         <th colspan="2" class="has-text-centered">Type</th>
                     </tr>
+                    <!--Typing-->
                     <tr>
                         <td id="typeOne"></td>
                         <td id="typeTwo"></td>
@@ -105,6 +115,7 @@
                         <th class="has-text-centered">Height</th>
                         <th class="has-text-centered">Weight</th>
                     </tr>
+                    <!--Height/Weight-->
                     <tr>
                         <td><span id="pokeHeight"></span> m</td>
                         <td><span id="pokeWeight"></span> kg</td>
@@ -112,6 +123,7 @@
                     <tr>
                         <th colspan="2" class="has-text-centered">Sprites</th>
                     </tr>
+                    <!--Poke/Shiny Model-->
                     <tr>
                         <td><img id="defaultFrontImg"></td>
                         <td><img id="shinyFrontImg"></td>
@@ -120,10 +132,12 @@
                         <th class="has-text-centered">Abilities</th>
                         <th class="has-text-centered">Hidden Ability</th>
                     </tr>
+                    <!--Ability One-->
                     <tr>
                         <td id="abilityOne"></td>
                         <td id="hiddenAbility"></td>
                     </tr>
+                    <!--Ability Two-->
                     <tr>
                         <td id="abilityTwo"></td>
                         <td></td>
@@ -133,9 +147,10 @@
         </div>
         <div class="column is-1"></div>
     </div>
-            
+
+<!--JQuery CDN-->
 <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> --> <!-- JQUERY CDN -->
+<!-- JS link -->
 <script type="module" src="./assets/js/script.js"></script>
 </body>
 </html>
