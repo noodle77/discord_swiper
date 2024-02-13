@@ -357,4 +357,3 @@ if (pokeHistoryArray.length == 0 && localStorage.getItem('pokeHistory') != null)
 modalButton.on('click', openModal);
 searchForm.on('submit', searchSubmitHandler);
 clearPokeHistoryBtn.on('click', clearHistory);
-
