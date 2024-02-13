@@ -27,6 +27,7 @@ var noEvos = $('#noEvos'),
     evoCardFrom = $('#evoCardFrom'),
     evolvesFrom = $('#evolvesFrom'),
     modalButton = $('#modalButton'),
+    modalButton2 = $('#modalButton2'),
     hiddenAbility = $('#hiddenAbility'),
     shinyFrontImg = $('#shinyFrontImg'),
     defaultFrontImg = $('#defaultFrontImg'),
@@ -454,6 +455,7 @@ if (pokeHistoryArray.length == 0 && localStorage.getItem('pokeHistory') != null)
 
 // Handlers
 modalButton.on('click', openModal);
+modalButton2.on('click', openModal);
 searchForm.on('submit', searchSubmitHandler);
 clearPokeHistoryBtn.on('click', clearHistory);
 clearPokeHistoryBtn2.on('click', clearHistory);
