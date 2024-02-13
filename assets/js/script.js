@@ -75,13 +75,20 @@ function displayPokeStats(data) {
         .text(data.types[0].type.name.toUpperCase())
         .removeClass()
         .addClass(data.types[0].type.name);
+        
     
     if (data.types[1]) {
         typeTwo
             .text(data.types[1].type.name.toUpperCase())
             .removeClass()
             .addClass(data.types[1].type.name);
-    };
+    } else {
+        typeTwo
+        .text('')
+        .removeClass()
+    
+    };  
+
 
     // displayd Pokémon images
     defaultFrontImg.attr('src', data.sprites.front_default);
@@ -113,8 +120,8 @@ searchForm.on('submit', searchSubmitHandler);
 
 //execute when the document is ready
 mydoc.ready(function documentReady() {
-    getPokeApi('mew');
-    getPokeTCGApi('mew');
+    getPokeApi('charizard');
+    getPokeTCGApi('charizard');
 })
 
 // gets color based on Pokémon type
