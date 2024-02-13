@@ -1,8 +1,11 @@
 :root {
-    --darkGreen: #26580F;
-    --green: #378805;
-    --lightGreen: #86DC3D;
-    --offGreen: #C5E90B;
+    --darkBlack: #0A0A0A;
+    --black: #101010;
+    --textWhite: #ffffff;
+    --textWhiteShade: #f5f5f5;
+    --textPink: #F24667;
+    --textPinkShade: #f24668e5;
+
     --normal: #AAAA99;
     --fire: #FF4422;
     --water: #3399FF;
@@ -23,28 +26,82 @@
     --fairy: #EE99EE;
 }
 
+html {
+    background-color: var(--black);
+}
+
+header {
+    background-color: var(--darkBlack);
+}
+
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: var(--black);
+    min-height: 100vh;
+    min-width: 100vw;
 }
 
-h1 {
-    background-color: var(--darkGreen);
-    color: var(--offGreen);
+#headerOne {
+    color: var(--textWhite)
 }
 
-#searchButton {
-    background-color: var(--green);
-    color: var(--offGreen);
+#headerTwo, .cardHeader {
+    color: var(--textPink)
 }
 
-#searchButton:hover {
-    background-color: var(--darkGreen);
+#pokeInput {
+    border-color: var(--textPink);
+    box-shadow: none;
+}
+
+#historyButtons, #clearPokeHistoryBtn, #searchForm, #searchButton {
+    width: 100%;
+}
+
+#clearPokeHistoryBtn, #searchButton, #modalButton {
+    background-color: var(--textPink);
+    border-color: var(--textPink);
+    box-shadow: none;
+    color: var(--textWhite);
+}
+
+#clearPokeHistoryBtn:hover, #clearPokeHistoryBtn:active, #clearPokeHistoryBtn:focus, #searchButton:hover, #searchButton:active, #searchButton:focus,
+#modalButton:hover, #modalButton:active, #modalButton:focus {
+    background-color: var(--textPinkShade);
+    border-color: var(--textWhite);
+    box-shadow: none;
+    color: var(--textWhite);
+}
+
+.button {
+    background-color: var(--textWhite);
+    color: var(--textPink);
+    box-shadow: none;
+}
+
+.button:hover, .button:active, .button:focus {
+    background-color: var(--textWhiteShade);
+    border-color: var(--textPink);
+    box-shadow: none;
+    color: var(--textPink);
 }
 
 #pokeCard {
     /* 5:7 ratio based off 64px */
-    height: 448px;
-    width: 320px;
+    max-width: 320px;
+    max-height: 448px;
+    height: auto;
+    width: auto;
+}
+
+th, .modal-card-head, .modal-card-title {
+    background-color: var(--darkBlack);
+    color: var(--textPink)!important;
+}
+
+td, .modal-card-body {
+    background-color: var(--black);
+    color: var(--textWhite);
 }
 
 #abilityOne::first-letter {
