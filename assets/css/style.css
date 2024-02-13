@@ -1,11 +1,9 @@
+/* ---------- VARIABLES ---------- */
 :root {
-    --darkBlack: #0A0A0A;
-    --black: #101010;
-    --textWhite: #ffffff;
-    --textWhiteShade: #f5f5f5;
-    --textPink: #F24667;
-    --textPinkShade: #f24668e5;
-
+    --darkGreen: #26580F;
+    --green: #378805;
+    --lightGreen: #86DC3D;
+    --offGreen: #C5E90B;
     --normal: #AAAA99;
     --fire: #FF4422;
     --water: #3399FF;
@@ -24,85 +22,161 @@
     --dark: #775544;
     --steel: #AAAABB;
     --fairy: #EE99EE;
-}
+    --type-shadow: -1px 2px 7px #000000 !important;
 
+    --gradient-in: rgb(44, 44, 44);
+    --gradient-out: rgb(11, 11, 11);
+    --header-clone: rgb(10, 10, 10);
+    --table-bg: rgb(22, 22, 22);
+    --table-bg-mobile: rgb(11, 11, 11);
+
+
+    --bulma-danger: rgba(223, 84, 106);
+    --bulma-warning: rgba(250, 225, 149);
+    --bulma-success: rgba(110, 196, 146);
+    --bulma-info: rgba(84, 140, 203);
+    --bulma-link: rgba(77, 94, 192);
+    --bulma-primary: rgba(95, 206, 179);
+    --bulma-dark: rgb(54, 54, 54);
+    --bulma-light: rgba(245, 245, 245);
+    --bulma-light50: rgba(245, 245, 245, 0.5);
+}
+/* ------------------------------- */
+
+
+
+
+
+/* ---------- SEMANTICS ---------- */
 html {
-    background-color: var(--black);
-}
-
-header {
-    background-color: var(--darkBlack);
+    margin: 0px !important;
+    height: 100% !important;
+    width: 100% !important;
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    margin: 0px !important;
+    min-height: 100% !important;
+    min-width: 100% !important;
+    background-image: radial-gradient(var(--gradient-in), var(--gradient-out)) !important;
+    background-attachment: fixed !important;
     font-family: 'Roboto', sans-serif;
-    background-color: var(--black);
-    min-height: 100vh;
-    min-width: 100vw;
 }
 
-#headerOne {
-    color: var(--textWhite)
+nav {
+    min-width: 100%;
 }
 
-#headerTwo, .cardHeader {
-    color: var(--textPink)
+section {
+    flex: 1;
+    padding: 5% !important;
 }
 
-#pokeInput {
-    border-color: var(--textPink);
-    box-shadow: none;
+figure {
+    max-width: 70% !important;
+    box-shadow: 0em 2em 4em 0.15em rgba(0, 0, 0, 1) !important;
 }
 
-#historyButtons, #clearPokeHistoryBtn, #searchForm, #searchButton {
+table {
+    background-color: var(--table-bg) !important;
+}
+
+thead {
+    border: 1px solid var(--bulma-light50);
+}
+
+td {
+    border: none !important;
+}
+
+th {
+    border: none !important;
+}
+
+/* ------------------------------- */
+
+
+
+
+
+/* ---------- ELEMENT CLASSES ---------- */
+.historyBtn {
+    background-color: transparent !important;
+}
+
+.modal-card-head, .modal-card-title {
+    background-color: var(--header-clone);
+    color: var(--bulma-danger)!important;
+}
+
+.modal-card-body {
+    /* background-color: var(--black); */
+    background-image: radial-gradient(var(--gradient-in), var(--gradient-out)) !important;
+    color: var(--bulma-light);
+}
+/* ---------- ELEMENT CLASSES ---------- */
+
+
+
+
+
+/* ---------- UTILITY CLASSES ---------- */
+.roundme {
+    border-radius: 10px;
+}
+
+.center, .center-column {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+    align-items: center;
+}
+
+.center-column {
+    flex-direction: column;
+}
+
+.left {
+    display: flex;
+    justify-content: left;
+    justify-items: left;
+    text-align: center;
+    align-items: center;
+}
+
+.right {
+    display: flex;
+    justify-content: right;
+    justify-items: right;
+    text-align: center;
+    align-items: center;
+}
+
+.even-split {
+    table-layout: fixed;
     width: 100%;
 }
 
-#clearPokeHistoryBtn, #searchButton, #modalButton {
-    background-color: var(--textPink);
-    border-color: var(--textPink);
-    box-shadow: none;
-    color: var(--textWhite);
+.even-split td {
+    width: 50%;
 }
+/* ------------------------------------- */
 
-#clearPokeHistoryBtn:hover, #clearPokeHistoryBtn:active, #clearPokeHistoryBtn:focus, #searchButton:hover, #searchButton:active, #searchButton:focus,
-#modalButton:hover, #modalButton:active, #modalButton:focus {
-    background-color: var(--textPinkShade);
-    border-color: var(--textWhite);
-    box-shadow: none;
-    color: var(--textWhite);
-}
 
-.button {
-    background-color: var(--textWhite);
-    color: var(--textPink);
-    box-shadow: none;
-}
 
-.button:hover, .button:active, .button:focus {
-    background-color: var(--textWhiteShade);
-    border-color: var(--textPink);
-    box-shadow: none;
-    color: var(--textPink);
-}
 
+
+/* ---------- IDS ---------- */
 #pokeCard {
     /* 5:7 ratio based off 64px */
-    max-width: 320px;
-    max-height: 448px;
-    height: auto;
-    width: auto;
-}
-
-th, .modal-card-head, .modal-card-title {
-    background-color: var(--darkBlack);
-    color: var(--textPink)!important;
-}
-
-td, .modal-card-body {
-    background-color: var(--black);
-    color: var(--textWhite);
-}
+    /* height: 448px; */
+    /* width: 320px; */
+     max-width: 100%;
+     height: auto;
+ }
 
 #abilityOne::first-letter {
     text-transform: capitalize;
@@ -119,75 +193,168 @@ td, .modal-card-body {
 #typeOne, #typeTwo {
     color: white;
 }
+/* ------------------------- */
 
+
+
+
+
+/* ---------- SFX ---------- */
+input::placeholder {
+    text-align: center;
+}
+
+a:focus {
+    outline: 1px solid var(--bulma-danger) !important;
+    box-shadow: 0 0 0 0.125em var(--bulma-danger) !important;
+}
+
+button:focus, input:focus {
+    outline: 1px solid var(--bulma-light) !important;
+    box-shadow: 0 0 0 0.125em var(--bulma-light) !important;
+}
+
+button:hover {
+    background-color: var(--bulma-danger) !important;
+    color: var(--bulma-light) !important;
+}
+
+input:hover::placeholder, input:focus::placeholder {
+    color: transparent;
+}
+/* ------------------------- */
+
+
+
+
+
+/* ---------- MEDIA QUERIES ---------- */
+@media (max-width: 1680px) {
+    figure {
+        max-width: 75% !important;
+    }
+}
+
+@media (max-width: 1368px) {
+    .spacer {
+        display: none;
+    }
+}
+
+@media (max-width: 915px) {
+    figure {
+        max-width: 85% !important;
+    }    
+}
+
+@media (max-width: 768px) {
+    table {
+        background-color: var(--table-bg-mobile) !important;
+    }
+    
+    .figure-box {
+        margin-top: 10%;
+        margin-bottom: 15% !important;
+    }
+
+    .modal-button {
+        display: none;
+    }
+}
+/* ----------------------------------- */
+
+
+
+
+
+/* ---------- TYPE COLORS ---------- */
 .normal {
     background-color: var(--normal);
+    text-shadow: var(--type-shadow);
 }
 
 .fire {
     background-color: var(--fire);
+    text-shadow: var(--type-shadow);
 }
 
 .water {
     background-color: var(--water);
+    text-shadow: var(--type-shadow);
 }
 
 .electric {
     background-color: var(--electric);
+    text-shadow: var(--type-shadow);
 }
 
 .grass {
     background-color: var(--grass);
+    text-shadow: var(--type-shadow);
 }
 
 .ice {
     background-color: var(--ice);
+    text-shadow: var(--type-shadow);
 }
 
 .fighting {
     background-color: var(--fighting);
+    text-shadow: var(--type-shadow);
 }
 
 .poison {
     background-color: var(--poison);
+    text-shadow: var(--type-shadow);
 }
 
 .ground {
     background-color: var(--ground);
+    text-shadow: var(--type-shadow);
 }
 
 .flying {
     background-color: var(--flying);
+    text-shadow: var(--type-shadow);
 }
 
 .psychic {
     background-color: var(--psychic);
+    text-shadow: var(--type-shadow);
 }
 
 .bug {
     background-color: var(--bug);
+    text-shadow: var(--type-shadow);
 }
 
 .rock {
     background-color: var(--rock);
+    text-shadow: var(--type-shadow);
 }
 
 .ghost {
     background-color: var(--ghost);
+    text-shadow: var(--type-shadow);
 }
 
 .dragon {
     background-color: var(--dragon);
+    text-shadow: var(--type-shadow);
 }
 
 .dark {
     background-color: var(--dark);
+    text-shadow: var(--type-shadow);
 }
 
 .steel {
     background-color: var(--steel);
+    text-shadow: var(--type-shadow);
 }
 
 .fairy {
     background-color: var(--fairy);
+    text-shadow: var(--type-shadow);
 }
+/* ----------------------------------- */
