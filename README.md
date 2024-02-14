@@ -1,6 +1,6 @@
 ## PokéHub
 
-<!-- PLACE URL TO LIVE CODE HERE -->
+https://noodle77.github.io/pokehub/
 
 ## Description
 
@@ -12,4 +12,4 @@ The first time the app is loaded it will search for Mew by default to fill out t
 
 Back to the top on the left side the user should see "Clear History" and "Evolutions". Clear history allows the user to clear the page and reset back to a clean state. Evolutions allows the user to see if the searched pokémon has Evolutions to and from their current state. Not all pokémon has evolutions.
 
-![alt text](./assets/images/PokeHubScreentshot.png)
+![Screenshot](./assets/images/PokeHubScreentshot.png)
